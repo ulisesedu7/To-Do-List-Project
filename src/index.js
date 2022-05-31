@@ -1,13 +1,29 @@
+// CSS styles import
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+// Main Function 
+const toDoListItems = [{
+  description: 'Finish the project of today',
+  completed: false,
+  index: 0,
+},
+{
+  description: 'Finish additional reading exercises',
+  completed: false,
+  index: 1,
+},
+{
+  description: 'Finish webpack exercise',
+  completed: true,
+  index: 2,
+}];
 
-  // Lodash, now imported by this script
-  element.innerHTML =('Hello, webpack');
-  element.classList.add('hello');
+const toDoListContainer = document.getElementById('to-do-list');
 
-  return element;
+function genToDoListMarkUp(description, completed, index) {
+  const toDoListMarkup = `
+    <li></li>
+    <li></li>
+    <li></li>
+  `
 }
-
-document.body.appendChild(component());
