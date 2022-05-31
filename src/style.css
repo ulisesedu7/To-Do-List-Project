@@ -6,3 +6,35 @@
   letter-spacing: normal;
 }
 
+#main-container {
+  border: 1px solid grey;
+  width: 55%;
+  margin: 3rem auto;
+  border-bottom: none;
+}
+
+#main-container > *,
+.list-items-c {
+  border-bottom: 1px solid grey;
+}
+
+#main-c-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#to-do-input {
+  width: 100%;
+  border-top: 1px;
+  border-left: 1px;
+  border-right: 1px;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.list-items-c {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem;
+  align-items: center;
+}

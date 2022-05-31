@@ -25,11 +25,11 @@ const toDoListContainer = document.getElementById('to-do-list');
 
 function genToDoListMarkUp(completed, description, index) {
   const toDoListMarkup = `
-    <article class="list-items-c">
+    <div class="list-items-c">
       <input class="to-do-input" type="checkbox" id="${completed}">
       <p class="to-do-des">${description}</p>
       <i class="fa-solid fa-ellipsis-vertical" id="${index}"></i>
-    </article>
+    </div>
   `;
 
   return toDoListMarkup;
