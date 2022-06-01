@@ -17,6 +17,10 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.445);
 }
 
+i {
+  cursor: pointer;
+}
+
 .list-items-c {
   display: flex;
   justify-content: space-between;
@@ -35,10 +39,12 @@
 }
 
 #to-do-input {
-  width: fit-content;
+  width: 95%;
   padding: 1rem;
   border: none;
   font-style: italic;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .list-items-c div {

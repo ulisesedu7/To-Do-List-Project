@@ -40,3 +40,6 @@ function genToDoListMarkUp(completed, description, index) {
 const toDoListMarkUp = toDoListItems.reduce((acc, { completed, description, index }) => `${acc}${genToDoListMarkUp(completed, description, index)}`, '');
 
 toDoListContainer.insertAdjacentHTML('afterbegin', toDoListMarkUp);
+
+// Submission Event Function to Add List Item 
+
