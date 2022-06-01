@@ -19,7 +19,6 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    clean: true,
   },
   module: {
     rules: [
