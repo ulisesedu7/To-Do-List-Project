@@ -17,6 +17,13 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.445);
 }
 
+.list-items-c {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem;
+  align-items: center;
+}
+
 .list-items-c:nth-child(1) {
   border-top: 1px solid rgba(128, 128, 128, 0.445);
 }
@@ -34,13 +41,6 @@
   font-style: italic;
 }
 
-.list-items-c {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.6rem;
-  align-items: center;
-}
-
 .list-items-c div {
   display: flex;
   align-items: center;
@@ -51,5 +51,5 @@
   text-align: center;
   padding: 1rem;
   color: rgba(128, 128, 128, 0.76);
-  background-color: rgba(204, 204, 204, 0.20);
+  background-color: rgba(204, 204, 204, 0.2);
 }

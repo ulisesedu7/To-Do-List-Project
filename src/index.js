@@ -1,7 +1,7 @@
 // CSS styles import
 import './style.css';
 
-// Main Function 
+// Main Function
 const toDoListItems = [{
   completed: false,
   description: 'Finish the project of today',
@@ -37,6 +37,6 @@ function genToDoListMarkUp(completed, description, index) {
   return toDoListMarkup;
 }
 
-const toDoListMarkUp = toDoListItems.reduce((acc, {completed, description, index}) => `${acc}${genToDoListMarkUp(completed, description, index)}`, '');
+const toDoListMarkUp = toDoListItems.reduce((acc, { completed, description, index }) => `${acc}${genToDoListMarkUp(completed, description, index)}`, '');
 
 toDoListContainer.insertAdjacentHTML('afterbegin', toDoListMarkUp);
