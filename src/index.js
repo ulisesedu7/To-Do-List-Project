@@ -26,8 +26,10 @@ const toDoListContainer = document.getElementById('to-do-list');
 function genToDoListMarkUp(completed, description, index) {
   const toDoListMarkup = `
     <div class="list-items-c">
-      <input class="to-do-input" type="checkbox" id="${completed}">
-      <p class="to-do-des">${description}</p>
+      <div>
+        <input class="to-do-check" type="checkbox" id="${completed}">
+        <p class="to-do-des">${description}</p>
+      </div>
       <i class="fa-solid fa-ellipsis-vertical" id="${index}"></i>
     </div>
   `;
