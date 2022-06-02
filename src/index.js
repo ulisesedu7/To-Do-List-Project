@@ -1,38 +1,48 @@
 // CSS styles import
 import './style.css';
 
+// Import functionalities of adding and removing
+import { StoredItems } from './add-remove-fs';
+import { LocalStorage } from './add-remove-fs';
+
 // Main Function
 class ToDoListItems {
-  constructor(description, complete, index) {
-    this.complete = complete;
+  constructor(description, completed, index) {
+    this.completed = completed;
     this.description = description;
     this.index = index;
   }
 }
 
-
-/*
-Create HTML Dynamically
-*/
-const toDoListContainer = document.getElementById('to-do-list');
-
-function genToDoListMarkUp(completed, description, index) {
-  const toDoListMarkup = `
-    <div class="list-items-c">
-      <div>
-        <input class="to-do-check" type="checkbox" id="${completed}">
-        <p class="to-do-des">${description}</p>
-      </div>
-      <i class="fa-solid fa-ellipsis-vertical" id="${index}"></i>
-    </div>
-  `;
-
-  return toDoListMarkup;
-}
-
-const toDoListMarkUp = toDoListItems.reduce((acc, { completed, description, index }) => `${acc}${genToDoListMarkUp(completed, description, index)}`, '');
+// Const from HTML 
+const itemDescription = document.getElementById('to-do-input');
 
 toDoListContainer.insertAdjacentHTML('afterbegin', toDoListMarkUp);
 
-// Submission Event Function to Add List Item 
+// Load local storage information
+document.addEventListener('DOMContentLoaded', StoredItems.displayItems)
 
+// Submission Event Function to Add List Item 
+itemDescription.addEventListener('keypress', (e) => {
+  e.preventDefault();
+
+  // Get Value
+  const inputItem = itemDescription.value;
+
+  if(e.key === 'Enter' && inputItem !== '') {
+    // Create item
+    const item = new ToDoListItems();
+
+    // Add item 
+    StoredItems.addItem(item);
+
+    // Add item to Local Storage
+    LocalStorage.addItemStorage(item);
+
+    // Clear Input
+    StoredItems.clearInput();
+
+  }
+});
+
+// Remove item Event 
