@@ -2,21 +2,14 @@
 import './style.css';
 
 // Main Function
-const toDoListItems = [{
-  completed: false,
-  description: 'Finish the project of today',
-  index: 0,
-},
-{
-  completed: false,
-  description: 'Finish additional reading exercises',
-  index: 1,
-},
-{
-  completed: true,
-  description: 'Finish webpack exercise',
-  index: 2,
-}];
+class ToDoListItems {
+  constructor(description, complete, index) {
+    this.complete = complete;
+    this.description = description;
+    this.index = index;
+  }
+}
+
 
 /*
 Create HTML Dynamically

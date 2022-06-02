@@ -1,11 +1,4 @@
-class ToDoListItems {
-  constructor(description, complete, index) {
-    this.complete = complete;
-    this.description = description;
-    this.index = index;
-  }
-}
-
+// Function to Add and Remove Items
 const itemDescription = document.getElementById('to-do-input');
 
 class StoredItems {
@@ -14,6 +7,7 @@ class StoredItems {
   }
 }
 
+// Local Storage Function 
 class LocalStorage {
   static getItems () {
     let items;
@@ -25,5 +19,24 @@ class LocalStorage {
     }
 
     return items;
+  }
+
+  static addItemStorage(item) {
+    const items = StoredItems.getItem();
+
+    items.push(item);
+
+    localStorage.setItem('items', JSON.stringify(items));
+  }
+
+  static removeItemStorage(item) {
+    const items = StoredItems.getItem();
+    
+    items.forEach((item, index) => {
+      // If statement to compare the selected item
+      items.splice(index, 1);
+    });
+
+    localStorage.setItem('items', JSON.stringify(items));
   }
 }
