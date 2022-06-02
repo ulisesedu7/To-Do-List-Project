@@ -29,7 +29,7 @@ itemDescription.addEventListener('keypress', (e) => {
 
   if(e.key === 'Enter'  && description !== '') {
     // Create item
-    const item = new ToDoListItems(false, description, description.length);
+    const item = new ToDoListItems(false, description);
 
     // Add item 
     StoredItems.addItem(item);
@@ -48,9 +48,9 @@ const listItem = document.querySelectorAll('.list-items-c');
 const listItemP = document.querySelectorAll('.to-do-des');
 
 
-document.querySelectorAll('.to-do-check').forEach((i) => {
+document.querySelectorAll('.to-do-div').forEach((i) => {
   i.addEventListener('click', () => {
-    i.parentElement.classList.toggle('edit-background');
+    i.parentElement.parentElement.classList.toggle('new-background');
   });
 });
 

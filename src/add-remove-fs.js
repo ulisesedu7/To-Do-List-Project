@@ -15,7 +15,7 @@ class StoredItems {
     toDoListMarkUp.classList.add('list-items-c');
 
     toDoListMarkUp.innerHTML = `
-    <div>
+    <div class="to-do-div">
       <input class="to-do-check ${item.complete}" type="checkbox">
       <p class="to-do-des">${item.description}</p>
     </div>
