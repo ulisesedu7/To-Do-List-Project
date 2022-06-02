@@ -7,6 +7,7 @@ class StoredItems {
     const items = LocalStorage.getItemStorage();
 
     items.forEach((item) => StoredItems.addItem(item));
+
   }
 
   static addItem(item) {
@@ -15,10 +16,11 @@ class StoredItems {
 
     toDoListMarkUp.innerHTML = `
     <div>
-      <input class="to-do-check" type="checkbox" id="${item.complete}">
+      <input class="to-do-check ${item.complete}" type="checkbox">
       <p class="to-do-des">${item.description}</p>
     </div>
     <i class="fa-solid fa-ellipsis-vertical" id="${item.index}"></i>
+    <i class="fa-solid fa-trash-can"></i>
     `
     toDoListContainer.appendChild(toDoListMarkUp);
   }

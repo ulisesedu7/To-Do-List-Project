@@ -66,3 +66,11 @@ Classes to add for the remove
 .line-through {
   text-decoration: line-through;
 }
+
+.edit-background {
+  background-color: rgb(243, 243, 0);
+}
+
+.fa-trash-can {
+  display: none;
+}

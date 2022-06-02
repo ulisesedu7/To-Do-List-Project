@@ -29,7 +29,7 @@ itemDescription.addEventListener('keypress', (e) => {
 
   if(e.key === 'Enter'  && description !== '') {
     // Create item
-    const item = new ToDoListItems(false, description, 1);
+    const item = new ToDoListItems(false, description, description.length);
 
     // Add item 
     StoredItems.addItem(item);
@@ -44,12 +44,15 @@ itemDescription.addEventListener('keypress', (e) => {
 });
 
 // Change to do list item when clicked 
-const listItem = document.querySelector('.list-items-c');
+const listItem = document.querySelectorAll('.list-items-c');
+const listItemP = document.querySelectorAll('.to-do-des');
 
-listItem.addEventListener('click', (e) => {
-  
+
+document.querySelectorAll('.to-do-check').forEach((i) => {
+  i.addEventListener('click', () => {
+    i.parentElement.classList.toggle('edit-background');
+  });
 });
-
 
 // Remove item Event 
 toDoListContainer.addEventListener('', (e) => {
