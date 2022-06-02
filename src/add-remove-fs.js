@@ -4,7 +4,7 @@ const toDoListContainer = document.getElementById('to-do-list');
 
 class StoredItems {
   static displayItems() {
-    const items = LocalStorage.getItems();
+    const items = LocalStorage.getItemStorage();
 
     items.forEach((item) => StoredItems.addItem(item));
   }
@@ -36,7 +36,7 @@ class StoredItems {
 
 // Local Storage Function 
 class LocalStorage {
-  static getItems () {
+  static getItemStorage () {
     let items;
 
     if (localStorage.getItem('items') === null) {
@@ -49,15 +49,15 @@ class LocalStorage {
   }
 
   static addItemStorage(item) {
-    const items = LocalStorage.getItem();
+    const items = LocalStorage.getItemStorage();
 
     items.push(item);
 
     localStorage.setItem('items', JSON.stringify(items));
   }
 
-  static removeItemStorage(item) {
-    const items = LocalStorage.getItem();
+  static removeItemStorage(content) {
+    const items = LocalStorage.getItemStorage();
     
     items.forEach((item, index) => {
       // If statement to compare the selected item

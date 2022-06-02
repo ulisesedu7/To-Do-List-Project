@@ -7,7 +7,7 @@ import { LocalStorage } from './add-remove-fs';
 
 // Main Function
 class ToDoListItems {
-  constructor(description, completed, index) {
+  constructor(completed, description, index) {
     this.completed = completed;
     this.description = description;
     this.index = index;
@@ -16,22 +16,20 @@ class ToDoListItems {
 
 // Const from HTML 
 const itemDescription = document.getElementById('to-do-input');
-
-toDoListContainer.insertAdjacentHTML('afterbegin', toDoListMarkUp);
+const toDoListContainer = document.getElementById('to-do-list');
 
 // Load local storage information
 document.addEventListener('DOMContentLoaded', StoredItems.displayItems)
 
 // Submission Event Function to Add List Item 
 itemDescription.addEventListener('keypress', (e) => {
-  e.preventDefault();
 
   // Get Value
-  const inputItem = itemDescription.value;
+  const description = itemDescription.value;
 
-  if(e.key === 'Enter' && inputItem !== '') {
+  if(e.key === 'Enter'  && description !== '') {
     // Create item
-    const item = new ToDoListItems();
+    const item = new ToDoListItems(false, description, 1);
 
     // Add item 
     StoredItems.addItem(item);
@@ -45,4 +43,20 @@ itemDescription.addEventListener('keypress', (e) => {
   }
 });
 
+// Change to do list item when clicked 
+const listItem = document.querySelector('.list-items-c');
+
+listItem.addEventListener('click', (e) => {
+  
+});
+
+
 // Remove item Event 
+toDoListContainer.addEventListener('', (e) => {
+  // Remove item from List 
+  StoredItems.removeItem(e.target);
+
+  // Remove item from Local Storage
+  LocalStorage.removeItemStorage();
+
+});

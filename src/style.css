@@ -24,7 +24,7 @@ i {
 .list-items-c {
   display: flex;
   justify-content: space-between;
-  padding: 0.6rem;
+  padding: 0.8rem;
   align-items: center;
 }
 
@@ -58,4 +58,11 @@ i {
   padding: 1rem;
   color: rgba(128, 128, 128, 0.76);
   background-color: rgba(204, 204, 204, 0.2);
+}
+
+/*
+Classes to add for the remove 
+*/
+.line-through {
+  text-decoration: line-through;
 }
