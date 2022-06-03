@@ -74,3 +74,11 @@ Classes to add for the remove
 .fa-trash-can {
   display: none;
 }
+
+.remove {
+  display: block;
+}
+
+.item-removed {
+  display: none;
+}

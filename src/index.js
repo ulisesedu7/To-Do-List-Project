@@ -17,6 +17,7 @@ class ToDoListItems {
 // Const from HTML 
 const itemDescription = document.getElementById('to-do-input');
 const toDoListContainer = document.getElementById('to-do-list');
+let id = 0;
 
 // Load local storage information
 StoredItems.displayItems();
@@ -26,10 +27,12 @@ itemDescription.addEventListener('keypress', (e) => {
 
   // Get Value
   const description = itemDescription.value;
+  
 
   if(e.key === 'Enter'  && description !== '') {
+    
     // Create item
-    const item = new ToDoListItems(false, description, description.length);
+    const item = new ToDoListItems(false, description, id);
 
     // Add item 
     StoredItems.addItem(item);
@@ -41,34 +44,44 @@ itemDescription.addEventListener('keypress', (e) => {
     StoredItems.clearInput();
 
     // Reload screen
-    window.location.reload();
+    window.top.location.refresh();
+
+    id++;
   }
   
 });
 
 // Change to do list item when clicked 
-const listItem = document.querySelectorAll('.list-items-c');
 const listItemP = document.querySelectorAll('.to-do-des');
 const listCheckBox = document.querySelectorAll('to-do-check');
+const toDoDiv = document.querySelectorAll('to-do-div');
 
 listItemP.forEach((i) => {
   i.addEventListener('click', () => {
+    // Change Color and Add styles and trash can 
     i.parentElement.parentElement.classList.toggle('new-background');
-  });
-});
+    i.parentElement.nextElementSibling.classList.toggle('item-removed');
+    i.parentElement.nextElementSibling.nextElementSibling.classList.toggle('remove');
 
-listCheckBox.forEach((i) => {
-  i.addEventListener('click', () => {
-    i.nextElementSibling.classList.add('line-through');
+    // Make Content Editable and update the storage 
   });
 });
 
 // Remove item Event 
-toDoListContainer.addEventListener('', (e) => {
-  // Remove item from List 
-  StoredItems.removeItem(e.target);
+toDoListContainer.addEventListener('click', (e) => {
+  if(e.target.classList.contains('remove') === true) {
+    // Remove item from List 
+    StoredItems.removeItem(e.target);
 
-  // Remove item from Local Storage
-  LocalStorage.removeItemStorage();
+    // Remove item from Local Storage
+    LocalStorage.removeItemStorage(e.target.previousElementSibling.previousElementSibling.lastElementChild.innerHTML);
+
+    // Update Index once item is deleted
+    
+  }
+
+  if (e.target.classList.contains('to-do-check') === true) {
+    e.target.parentElement.classList.toggle('line-through');
+  }
 
 });

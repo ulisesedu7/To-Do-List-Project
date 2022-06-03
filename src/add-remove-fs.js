@@ -17,7 +17,7 @@ class StoredItems {
     toDoListMarkUp.innerHTML = `
     <div class="to-do-div">
       <input class="to-do-check ${item.complete}" type="checkbox">
-      <p class="to-do-des">${item.description}</p>
+      <p class="to-do-des" contentEditable="false">${item.description}</p>
     </div>
     <i class="fa-solid fa-ellipsis-vertical" id="${item.index}"></i>
     <i class="fa-solid fa-trash-can"></i>
@@ -62,8 +62,10 @@ class LocalStorage {
     const items = LocalStorage.getItemStorage();
     
     items.forEach((item, index) => {
-      // If statement to compare the selected item
-      items.splice(index, 1);
+      if (item.description === content) {
+        items.splice(index, 1);
+      }
+      
     });
 
     localStorage.setItem('items', JSON.stringify(items));
