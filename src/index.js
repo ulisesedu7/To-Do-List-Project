@@ -3,6 +3,7 @@ import './style.css';
 
 // Import functionalities of adding and removing
 import { StoredItems, LocalStorage, UpdateInformation } from './add-remove-fs.js';
+import checkboxStatus from './check-status.js';
 
 // Main Function
 class ToDoListItems {
@@ -90,13 +91,20 @@ toDoListContainer.addEventListener('click', (e) => {
       }
     });
   }
-});
 
-// Checkbox Status 
-const checkBoxStat = document.querySelectorAll('to-do-check');
-
-checkBoxStat.forEach((i) => {
-  i.addEventListener('click', (e) => {
+  // Checkbox Status
+  if (e.target.classList.contains('to-do-check') === true) {
     e.target.parentElement.classList.toggle('line-through');
-  });
+  
+    // Change completed 
+    e.target.classList.toggle('false');
+    e.target.classList.toggle('true');
+  
+    const indexEle = e.target.parentElement.nextElementSibling;
+    let currentIndex = indexEle.getAttribute('id');
+  
+    // Update Local Storage
+    checkboxStatus.updateStorageCheck(e.target, currentIndex);
+  }
 });
+

@@ -1,3 +1,5 @@
+import { LocalStorage } from "./add-remove-fs";
+
 class checkboxStatus {
   static updateStorageCheck(item, currentIndex) {
     const items = LocalStorage.getItemStorage();
@@ -17,3 +19,5 @@ class checkboxStatus {
   
   }
 }
+
+export default checkboxStatus;
