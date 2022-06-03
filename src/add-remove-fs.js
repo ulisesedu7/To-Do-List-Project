@@ -1,44 +1,13 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable eqeqeq */
 // Function to Add and Remove Items
 const itemDescription = document.getElementById('to-do-input');
 const toDoListContainer = document.getElementById('to-do-list');
 
-class StoredItems {
-  static displayItems() {
-    const items = LocalStorage.getItemStorage();
-
-    items.forEach((item) => StoredItems.addItem(item));
-
-  }
-
-  static addItem(item) {
-    const toDoListMarkUp = document.createElement('div');
-    toDoListMarkUp.classList.add('list-items-c');
-
-    toDoListMarkUp.innerHTML = `
-    <div class="to-do-div">
-      <input class="to-do-check ${item.completed}" type="checkbox">
-      <p class="to-do-des" contentEditable="false">${item.description}</p>
-    </div>
-    <i class="fa-solid fa-ellipsis-vertical" id="${item.index}"></i>
-    <i class="fa-solid fa-trash-can"></i>
-    `
-    toDoListContainer.appendChild(toDoListMarkUp);
-  }
-
-  static removeItem(element) {
-    if (element.classList.contains('remove')) {
-      element.parentElement.remove();
-    }
-  }
-
-  static clearInput() {
-    itemDescription.value = '';
-  }
-}
-
-// Local Storage Function 
+// Local Storage Function
 class LocalStorage {
-  static getItemStorage () {
+  static getItemStorage() {
     let items;
 
     if (localStorage.getItem('items') === null) {
@@ -60,47 +29,77 @@ class LocalStorage {
 
   static removeItemStorage(content) {
     const items = LocalStorage.getItemStorage();
-    
+
     items.forEach((item, index) => {
       if (item.description === content) {
         items.splice(index, 1);
       }
-      
     });
 
     localStorage.setItem('items', JSON.stringify(items));
   }
 }
 
+class StoredItems {
+  static displayItems() {
+    const items = LocalStorage.getItemStorage();
+
+    items.forEach((item) => StoredItems.addItem(item));
+  }
+
+  static addItem(item) {
+    const toDoListMarkUp = document.createElement('div');
+    toDoListMarkUp.classList.add('list-items-c');
+
+    toDoListMarkUp.innerHTML = `
+    <div class="to-do-div">
+      <input class="to-do-check ${item.completed}" type="checkbox">
+      <p class="to-do-des" contentEditable="false">${item.description}</p>
+    </div>
+    <i class="fa-solid fa-ellipsis-vertical" id="${item.index}"></i>
+    <i class="fa-solid fa-trash-can"></i>
+    `;
+    toDoListContainer.appendChild(toDoListMarkUp);
+  }
+
+  static removeItem(element) {
+    if (element.classList.contains('remove')) {
+      element.parentElement.remove();
+    }
+  }
+
+  static clearInput() {
+    itemDescription.value = '';
+  }
+}
+
 class UpdateInformation {
   static updateIndex() {
-    let items = LocalStorage.getItemStorage();
+    const items = LocalStorage.getItemStorage();
     let id = 0;
-    
+
     // Update Items to current Index
-    for(const obj of items) {
-       id = items.indexOf(obj);
-       obj.index = id;
+    for (const obj of items) {
+      id = items.indexOf(obj);
+      obj.index = id;
     }
 
     localStorage.setItem('items', JSON.stringify(items));
-
   }
 
   static updateDescription(newDescription, currentIndex) {
-    let items = LocalStorage.getItemStorage();
+    const items = LocalStorage.getItemStorage();
 
-    for(const obj of items) {
-      let id = items.indexOf(obj);
+    for (const obj of items) {
+      const id = items.indexOf(obj);
 
-      if(id == currentIndex) {
+      if (id == currentIndex) {
         obj.description = newDescription;
       }
-
     }
 
     localStorage.setItem('items', JSON.stringify(items));
   }
 }
 
-export {StoredItems, LocalStorage, UpdateInformation};
+export { StoredItems, LocalStorage, UpdateInformation };
