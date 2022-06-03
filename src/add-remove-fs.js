@@ -16,7 +16,7 @@ class StoredItems {
 
     toDoListMarkUp.innerHTML = `
     <div class="to-do-div">
-      <input class="to-do-check ${item.complete}" type="checkbox">
+      <input class="to-do-check ${item.completed}" type="checkbox">
       <p class="to-do-des" contentEditable="false">${item.description}</p>
     </div>
     <i class="fa-solid fa-ellipsis-vertical" id="${item.index}"></i>
@@ -72,4 +72,35 @@ class LocalStorage {
   }
 }
 
-export {StoredItems, LocalStorage};
+class UpdateInformation {
+  static updateIndex() {
+    let items = LocalStorage.getItemStorage();
+    let id = 0;
+    
+    // Update Items to current Index
+    for(const obj of items) {
+       id = items.indexOf(obj);
+       obj.index = id;
+    }
+
+    localStorage.setItem('items', JSON.stringify(items));
+
+  }
+
+  static updateDescription(newDescription, currentIndex) {
+    let items = LocalStorage.getItemStorage();
+
+    for(const obj of items) {
+      let id = items.indexOf(obj);
+
+      if(id == currentIndex) {
+        obj.description = newDescription;
+      }
+
+    }
+
+    localStorage.setItem('items', JSON.stringify(items));
+  }
+}
+
+export {StoredItems, LocalStorage, UpdateInformation};

@@ -4,6 +4,7 @@ import './style.css';
 // Import functionalities of adding and removing
 import { StoredItems } from './add-remove-fs';
 import { LocalStorage } from './add-remove-fs';
+import { UpdateInformation } from './add-remove-fs';
 
 // Main Function
 class ToDoListItems {
@@ -32,7 +33,7 @@ itemDescription.addEventListener('keypress', (e) => {
   if(e.key === 'Enter'  && description !== '') {
     
     // Create item
-    const item = new ToDoListItems(false, description, id);
+    const item = new ToDoListItems(false, description);
 
     // Add item 
     StoredItems.addItem(item);
@@ -43,7 +44,8 @@ itemDescription.addEventListener('keypress', (e) => {
     // Clear Input
     StoredItems.clearInput();
 
-    id++;
+    // Update index of added Element
+    UpdateInformation.updateIndex();
   }
   
 });
@@ -61,21 +63,39 @@ toDoListContainer.addEventListener('click', (e) => {
     LocalStorage.removeItemStorage(e.target.previousElementSibling.previousElementSibling.lastElementChild.innerHTML);
 
     // Update Index once item is deleted
-    
+    UpdateInformation.updateIndex();
+
   }
 
-  // Add line-through
-  if (e.target.classList.contains('to-do-check') === true) {
-    e.target.parentElement.classList.toggle('line-through');
-  }
+  // Change Color of item div tag
+  if (e.target.classList.contains('list-items-c') === true) {
 
-  // Change Color of P tag
-  if (e.target.classList.contains('to-do-des') === true) {
-    e.target.parentElement.parentElement.classList.toggle('new-background');
-    e.target.parentElement.nextElementSibling.classList.toggle('item-removed');
-    e.target.parentElement.nextElementSibling.nextElementSibling.classList.toggle('remove');
-  }
+    e.target.classList.toggle('new-background');
+    e.target.firstElementChild.nextElementSibling.classList.toggle('item-removed');
+    e.target.firstElementChild.nextElementSibling.nextElementSibling.classList.toggle('remove');
 
-  // Make Content Editable 
-  
+
+    // Add classes if P tag is clicked as well
+    const listItemP = e.target.firstElementChild.lastElementChild;
+
+    listItemP.contentEditable = 'true';
+
+    // Current Index
+    const indexEle = e.target.firstElementChild.nextElementSibling;
+    let currentIndex = indexEle.getAttribute('id');
+
+    e.target.firstElementChild.lastElementChild.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') {
+        e.target.contentEditable='false';
+        
+        let newdescription = e.target.innerHTML;
+
+        e.target.parentElement.parentElement.classList.toggle('new-background');
+        e.target.parentElement.nextElementSibling.classList.toggle('item-removed');
+        e.target.parentElement.nextElementSibling.nextElementSibling.classList.toggle('remove');
+
+        UpdateInformation.updateDescription(newdescription, currentIndex);
+      }
+    });
+  }
 });

@@ -47,6 +47,10 @@ i {
   margin-right: 0;
 }
 
+.to-do-des {
+  display: block;
+}
+
 .list-items-c div {
   display: flex;
   align-items: center;
