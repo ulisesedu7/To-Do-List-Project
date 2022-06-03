@@ -1,6 +1,6 @@
-# Awesome-Books
+# To-Do-List
 
-This repository contains an web app that allows to add and remove book's data using Javascript.
+This repository contains an web app that allows to add and remove items to a to-do-list data using Javascript.
 
 ## Built With
 
