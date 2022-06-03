@@ -91,3 +91,12 @@ toDoListContainer.addEventListener('click', (e) => {
     });
   }
 });
+
+// Checkbox Status 
+const checkBoxStat = document.querySelectorAll('to-do-check');
+
+checkBoxStat.forEach((i) => {
+  i.addEventListener('click', (e) => {
+    e.target.parentElement.classList.toggle('line-through');
+  });
+});
