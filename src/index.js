@@ -19,7 +19,7 @@ const itemDescription = document.getElementById('to-do-input');
 const toDoListContainer = document.getElementById('to-do-list');
 
 // Load local storage information
-document.addEventListener('DOMContentLoaded', StoredItems.displayItems)
+StoredItems.displayItems();
 
 // Submission Event Function to Add List Item 
 itemDescription.addEventListener('keypress', (e) => {
@@ -29,7 +29,7 @@ itemDescription.addEventListener('keypress', (e) => {
 
   if(e.key === 'Enter'  && description !== '') {
     // Create item
-    const item = new ToDoListItems(false, description);
+    const item = new ToDoListItems(false, description, description.length);
 
     // Add item 
     StoredItems.addItem(item);
@@ -40,17 +40,26 @@ itemDescription.addEventListener('keypress', (e) => {
     // Clear Input
     StoredItems.clearInput();
 
+    // Reload screen
+    window.location.reload();
   }
+  
 });
 
 // Change to do list item when clicked 
 const listItem = document.querySelectorAll('.list-items-c');
 const listItemP = document.querySelectorAll('.to-do-des');
+const listCheckBox = document.querySelectorAll('to-do-check');
 
-
-document.querySelectorAll('.to-do-div').forEach((i) => {
+listItemP.forEach((i) => {
   i.addEventListener('click', () => {
     i.parentElement.parentElement.classList.toggle('new-background');
+  });
+});
+
+listCheckBox.forEach((i) => {
+  i.addEventListener('click', () => {
+    i.nextElementSibling.classList.add('line-through');
   });
 });
 
