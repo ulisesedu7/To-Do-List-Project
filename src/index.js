@@ -43,32 +43,16 @@ itemDescription.addEventListener('keypress', (e) => {
     // Clear Input
     StoredItems.clearInput();
 
-    // Reload screen
-    window.top.location.refresh();
-
     id++;
   }
   
 });
 
-// Change to do list item when clicked 
-const listItemP = document.querySelectorAll('.to-do-des');
-const listCheckBox = document.querySelectorAll('to-do-check');
-const toDoDiv = document.querySelectorAll('to-do-div');
-
-listItemP.forEach((i) => {
-  i.addEventListener('click', () => {
-    // Change Color and Add styles and trash can 
-    i.parentElement.parentElement.classList.toggle('new-background');
-    i.parentElement.nextElementSibling.classList.toggle('item-removed');
-    i.parentElement.nextElementSibling.nextElementSibling.classList.toggle('remove');
-
-    // Make Content Editable and update the storage 
-  });
-});
-
-// Remove item Event 
+/*
+Remove item Event and Change to do list item when clicked
+*/
 toDoListContainer.addEventListener('click', (e) => {
+  // Remove Element
   if(e.target.classList.contains('remove') === true) {
     // Remove item from List 
     StoredItems.removeItem(e.target);
@@ -80,8 +64,18 @@ toDoListContainer.addEventListener('click', (e) => {
     
   }
 
+  // Add line-through
   if (e.target.classList.contains('to-do-check') === true) {
     e.target.parentElement.classList.toggle('line-through');
   }
 
+  // Change Color of P tag
+  if (e.target.classList.contains('to-do-des') === true) {
+    e.target.parentElement.parentElement.classList.toggle('new-background');
+    e.target.parentElement.nextElementSibling.classList.toggle('item-removed');
+    e.target.parentElement.nextElementSibling.nextElementSibling.classList.toggle('remove');
+  }
+
+  // Make Content Editable 
+  
 });
