@@ -17,10 +17,14 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.445);
 }
 
+i {
+  cursor: pointer;
+}
+
 .list-items-c {
   display: flex;
   justify-content: space-between;
-  padding: 0.6rem;
+  padding: 0.8rem;
   align-items: center;
 }
 
@@ -35,10 +39,16 @@
 }
 
 #to-do-input {
-  width: fit-content;
+  width: 95%;
   padding: 1rem;
   border: none;
   font-style: italic;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.to-do-des {
+  display: block;
 }
 
 .list-items-c div {
@@ -52,4 +62,27 @@
   padding: 1rem;
   color: rgba(128, 128, 128, 0.76);
   background-color: rgba(204, 204, 204, 0.2);
+}
+
+/*
+Classes to add for the remove
+*/
+.line-through {
+  text-decoration: line-through;
+}
+
+.new-background {
+  background-color: #fffed3;
+}
+
+.fa-trash-can {
+  display: none;
+}
+
+.remove {
+  display: block;
+}
+
+.item-removed {
+  display: none;
 }
