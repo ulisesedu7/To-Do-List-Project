@@ -11,9 +11,9 @@ class checkboxStatus {
     for (const obj of items) {
       const itemIndex = items.indexOf(obj);
 
-      if (item.classList.contains('true') && (currentIndex == itemIndex)) {
+      if (item.classList.contains('true') && (currentIndex == itemIndex + 1 )) {
         obj.completed = true;
-      } else if (item.classList.contains('false') && (currentIndex == itemIndex)) {
+      } else if (item.classList.contains('false') && (currentIndex == itemIndex + 1)) {
         obj.completed = false;
       }
     }
