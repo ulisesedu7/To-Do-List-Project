@@ -10,7 +10,7 @@ class checkboxStatus {
   
       if(item.classList.contains('true') && (currentIndex == itemIndex)) {
         obj.completed = true;
-      } else if (item.classList.contains('false')){
+      } else if (item.classList.contains('false')  && (currentIndex == itemIndex)){
         obj.completed = false;
       }
     }
