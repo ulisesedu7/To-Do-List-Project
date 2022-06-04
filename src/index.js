@@ -3,6 +3,7 @@ import './style.css';
 
 // Import functionalities of adding and removing
 import { StoredItems, LocalStorage, UpdateInformation } from './add-remove-fs.js';
+import checkboxStatus from './check-status.js';
 
 // Main Function
 class ToDoListItems {
@@ -16,6 +17,7 @@ class ToDoListItems {
 // Const from HTML
 const itemDescription = document.getElementById('to-do-input');
 const toDoListContainer = document.getElementById('to-do-list');
+const clearCompletedElement = document.getElementById('clear-completed');
 
 // Load local storage information
 StoredItems.displayItems();
@@ -40,6 +42,8 @@ itemDescription.addEventListener('keypress', (e) => {
 
     // Update index of added Element
     UpdateInformation.updateIndex();
+
+    window.location.reload();
   }
 });
 
@@ -90,4 +94,27 @@ toDoListContainer.addEventListener('click', (e) => {
       }
     });
   }
+
+  // Checkbox Status
+  if (e.target.classList.contains('to-do-check') === true) {
+    e.target.parentElement.classList.toggle('line-through');
+
+    // Change completed
+    e.target.classList.toggle('false');
+    e.target.classList.toggle('true');
+
+    const indexEle = e.target.parentElement.nextElementSibling;
+    const currentIndex = indexEle.getAttribute('id');
+
+    // Update Local Storage
+    checkboxStatus.updateStorageCheck(e.target, currentIndex);
+  }
+});
+
+clearCompletedElement.addEventListener('click', () => {
+  checkboxStatus.clearAllCompleted();
+
+  UpdateInformation.updateIndex();
+
+  window.location.reload();
 });

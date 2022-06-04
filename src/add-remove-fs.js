@@ -81,7 +81,7 @@ class UpdateInformation {
     // Update Items to current Index
     for (const obj of items) {
       id = items.indexOf(obj);
-      obj.index = id;
+      obj.index = id + 1;
     }
 
     localStorage.setItem('items', JSON.stringify(items));
