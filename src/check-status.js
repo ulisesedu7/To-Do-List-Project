@@ -1,37 +1,28 @@
-import { LocalStorage, StoredItems } from "./add-remove-fs";
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-plusplus */
+import { LocalStorage } from './add-remove-fs.js';
 
 class checkboxStatus {
   static updateStorageCheck(item, currentIndex) {
     const items = LocalStorage.getItemStorage();
-  
-    for(const obj of items){
-  
-      let itemIndex = items.indexOf(obj);
-  
-      if(item.classList.contains('true') && (currentIndex == itemIndex)) {
+
+    for (const obj of items) {
+      const itemIndex = items.indexOf(obj);
+
+      if (item.classList.contains('true') && (currentIndex == itemIndex)) {
         obj.completed = true;
-      } else if (item.classList.contains('false')  && (currentIndex == itemIndex)){
+      } else if (item.classList.contains('false') && (currentIndex == itemIndex)) {
         obj.completed = false;
       }
     }
-  
+
     localStorage.setItem('items', JSON.stringify(items));
-  
   }
 
   static clearAllCompleted() {
     const items = LocalStorage.getItemStorage();
-    
-    // for(const obj of items) {
-
-    //   let itemIndex = items.indexOf(obj);
-
-    //   items.forEach((item, index) => {
-    //     if (item.completed === true) {
-    //       items.splice(index, 1);
-    //     }
-    //   });
-    // }
 
     for (let i = 0; i <= items.length; i++) {
       items.forEach((item, index) => {
@@ -39,8 +30,7 @@ class checkboxStatus {
           items.splice(index, 1);
         }
       });
-    };
-    
+    }
 
     localStorage.setItem('items', JSON.stringify(items));
   }
