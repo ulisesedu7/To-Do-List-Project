@@ -1,4 +1,4 @@
-import { LocalStorage } from "./add-remove-fs";
+import { LocalStorage, StoredItems } from "./add-remove-fs";
 
 class checkboxStatus {
   static updateStorageCheck(item, currentIndex) {
@@ -17,6 +17,32 @@ class checkboxStatus {
   
     localStorage.setItem('items', JSON.stringify(items));
   
+  }
+
+  static clearAllCompleted() {
+    const items = LocalStorage.getItemStorage();
+    
+    // for(const obj of items) {
+
+    //   let itemIndex = items.indexOf(obj);
+
+    //   items.forEach((item, index) => {
+    //     if (item.completed === true) {
+    //       items.splice(index, 1);
+    //     }
+    //   });
+    // }
+
+    for (let i = 0; i <= items.length; i++) {
+      items.forEach((item, index) => {
+        if (item.completed === true) {
+          items.splice(index, 1);
+        }
+      });
+    };
+    
+
+    localStorage.setItem('items', JSON.stringify(items));
   }
 }
 

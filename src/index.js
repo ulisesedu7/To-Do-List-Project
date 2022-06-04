@@ -17,6 +17,7 @@ class ToDoListItems {
 // Const from HTML
 const itemDescription = document.getElementById('to-do-input');
 const toDoListContainer = document.getElementById('to-do-list');
+const clearCompletedElement = document.getElementById('clear-completed');
 
 // Load local storage information
 StoredItems.displayItems();
@@ -41,6 +42,8 @@ itemDescription.addEventListener('keypress', (e) => {
 
     // Update index of added Element
     UpdateInformation.updateIndex();
+
+    window.location.reload();
   }
 });
 
@@ -60,6 +63,7 @@ toDoListContainer.addEventListener('click', (e) => {
 
     // Update Index once item is deleted
     UpdateInformation.updateIndex();
+
   }
 
   // Change Color of item div tag
@@ -106,5 +110,14 @@ toDoListContainer.addEventListener('click', (e) => {
     // Update Local Storage
     checkboxStatus.updateStorageCheck(e.target, currentIndex);
   }
+  
 });
 
+clearCompletedElement.addEventListener('click', () => {
+
+  checkboxStatus.clearAllCompleted();
+  
+  UpdateInformation.updateIndex();
+
+  window.location.reload();
+});

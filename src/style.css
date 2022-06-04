@@ -64,6 +64,16 @@ i {
   background-color: rgba(204, 204, 204, 0.2);
 }
 
+#clear-completed:hover {
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+#clear-completed:active {
+  transform: translate(1px, 1px);
+}
+
 /*
 Classes to add for the remove
 */
