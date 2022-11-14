@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   devServer: {
     static: './dist',
-    port: '8080',
+    port: '8000',
     open: true,
     hot: true,
   },
@@ -24,8 +24,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader',
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
     ],
   },

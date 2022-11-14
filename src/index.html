@@ -7,16 +7,13 @@
   <title>To Do List</title>
 
   <!-- Favicon Icon -->
-  <link rel="icon" type="image/x-icon" href="./">
-
-  <!-- Background SCSS-->
-  <link rel="stylesheet" href="../src/styles/background.css">
+  <link rel="icon" type="image/x-icon" href="./assets/icons/main-fav.ico">
 
   <!-- Font Awesome Icons-->
   <script src="https://kit.fontawesome.com/64d25ab310.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <section id="main-container">
+  <main>
     <!-- Background Start -->
     <div class="night">
       <div class="shooting_star"></div>
@@ -42,19 +39,22 @@
     </div>
     <!-- Background End -->
 
-    <div id="main-c-head">
-      <h3>Today's To Do</h3>
-      <i class="fa-solid fa-arrows-rotate"></i>
-    </div>
+    <section id="main-container">
 
-    <input type="text" placeholder="Add to your list" id="to-do-input">
+      <div id="main-c-head">
+        <h3>Today's To Do</h3>
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </div>
 
-    <article id="to-do-list">
-      <!-- to do list automatically created with JS -->
-    </article>
+      <input type="text" placeholder="Add to your list" id="to-do-input">
 
-    <p id="clear-completed" class="clear-completed">Clear all completed</p>
+      <article id="to-do-list">
+        <!-- to do list automatically created with JS -->
+      </article>
 
-  </section>
+      <p id="clear-completed" class="clear-completed">Clear all completed</p>
+
+    </section>
+  </main>
 </body>
 </html>

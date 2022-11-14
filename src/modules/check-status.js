@@ -1,8 +1,6 @@
-/* eslint-disable max-classes-per-file */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable eqeqeq */
-/* eslint-disable no-plusplus */
-import { LocalStorage } from './modules/add-remove-fs.js';
+import { LocalStorage } from './add-remove-fs.js';
 
 class checkboxStatus {
   static updateStorageCheck(item, currentIndex) {
@@ -24,7 +22,7 @@ class checkboxStatus {
   static clearAllCompleted() {
     const items = LocalStorage.getItemStorage();
 
-    for (let i = 0; i <= items.length; i++) {
+    for (let i = 0; i <= items.length; i += 1) {
       items.forEach((item, index) => {
         if (item.completed === true) {
           items.splice(index, 1);

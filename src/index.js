@@ -1,5 +1,6 @@
 // CSS styles import
-import './styles/style.css';
+import './styles/background.scss';
+import './styles/style.scss';
 
 // Import functionalities of adding and removing
 import { StoredItems, LocalStorage, UpdateInformation } from './modules/add-remove-fs.js';
