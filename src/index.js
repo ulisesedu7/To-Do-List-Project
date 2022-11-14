@@ -1,9 +1,9 @@
 // CSS styles import
-import './style.css';
+import './styles/style.css';
 
 // Import functionalities of adding and removing
-import { StoredItems, LocalStorage, UpdateInformation } from './add-remove-fs.js';
-import checkboxStatus from './check-status.js';
+import { StoredItems, LocalStorage, UpdateInformation } from './modules/add-remove-fs.js';
+import checkboxStatus from './modules/check-status.js';
 
 // Main Function
 class ToDoListItems {

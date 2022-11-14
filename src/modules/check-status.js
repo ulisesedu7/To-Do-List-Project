@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-plusplus */
-import { LocalStorage } from './add-remove-fs.js';
+import { LocalStorage } from './modules/add-remove-fs.js';
 
 class checkboxStatus {
   static updateStorageCheck(item, currentIndex) {
