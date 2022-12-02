@@ -1,44 +1,10 @@
-/* eslint-disable max-classes-per-file */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable eqeqeq */
+import LocalStorage from './localStorage.js';
+
 // Function to Add and Remove Items
 const itemDescription = document.getElementById('to-do-input');
 const toDoListContainer = document.getElementById('to-do-list');
-
-// Local Storage Function
-class LocalStorage {
-  static getItemStorage() {
-    let items;
-
-    if (localStorage.getItem('items') === null) {
-      items = [];
-    } else {
-      items = JSON.parse(localStorage.getItem('items'));
-    }
-
-    return items;
-  }
-
-  static addItemStorage(item) {
-    const items = LocalStorage.getItemStorage();
-
-    items.push(item);
-
-    localStorage.setItem('items', JSON.stringify(items));
-  }
-
-  static removeItemStorage(content) {
-    const items = LocalStorage.getItemStorage();
-
-    items.forEach((item, index) => {
-      if (item.description === content) {
-        items.splice(index, 1);
-      }
-    });
-
-    localStorage.setItem('items', JSON.stringify(items));
-  }
-}
 
 class StoredItems {
   static displayItems() {
@@ -73,33 +39,4 @@ class StoredItems {
   }
 }
 
-class UpdateInformation {
-  static updateIndex() {
-    const items = LocalStorage.getItemStorage();
-    let id = 0;
-
-    // Update Items to current Index
-    for (const obj of items) {
-      id = items.indexOf(obj);
-      obj.index = id + 1;
-    }
-
-    localStorage.setItem('items', JSON.stringify(items));
-  }
-
-  static updateDescription(newDescription, currentIndex) {
-    const items = LocalStorage.getItemStorage();
-
-    for (const obj of items) {
-      const id = items.indexOf(obj);
-
-      if (id == currentIndex) {
-        obj.description = newDescription;
-      }
-    }
-
-    localStorage.setItem('items', JSON.stringify(items));
-  }
-}
-
-export { StoredItems, LocalStorage, UpdateInformation };
+export default StoredItems;
