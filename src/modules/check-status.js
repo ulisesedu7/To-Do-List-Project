@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable eqeqeq */
-import { LocalStorage } from './add-remove-fs.js';
+import LocalStorage from './add-remove-fs.js';
 
 class checkboxStatus {
   static updateStorageCheck(item, currentIndex) {

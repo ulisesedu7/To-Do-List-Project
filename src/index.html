@@ -15,7 +15,7 @@
 <body>
   <main>
     <!-- Background Start -->
-    <div class="night">
+    <!-- <div class="night">
       <div class="shooting_star"></div>
       <div class="shooting_star"></div>
       <div class="shooting_star"></div>
@@ -36,19 +36,25 @@
       <div class="shooting_star"></div>
       <div class="shooting_star"></div>
       <div class="shooting_star"></div>
-    </div>
+    </div> -->
     <!-- Background End -->
 
     <section id="main-container">
 
-      <div id="main-c-head">
+      <div id="main-c-head" class="main-header">
         <h3>Today's To Do</h3>
         <i class="fa-solid fa-arrows-rotate"></i>
       </div>
 
-      <input type="text" placeholder="Add to your list" id="to-do-input">
+      <!-- Create a form with an enter icon as a submit -->
+      <form id="main-form" class="form">
+        <input type="text" placeholder="Add your to do item" id="to-do-input" class="form__input">
+        <button type="submit" class="form__btn">
+          <i class="fa-solid fa-check fa-2x"></i>
+        </button>
+      </form>
 
-      <article id="to-do-list">
+      <article id="to-do-list" class="todo-items">
         <!-- to do list automatically created with JS -->
       </article>
 

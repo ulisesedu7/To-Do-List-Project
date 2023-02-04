@@ -1,13 +1,15 @@
 // CSS styles import
-import './styles/background.scss';
+// import './styles/background.scss';
 import './styles/style.scss';
 
 // Import functionalities of adding and removing
-import { StoredItems, LocalStorage, UpdateInformation } from './modules/add-remove-fs.js';
+import LocalStorage from './modules/localStorage.js';
+import StoredItems from './modules/add-remove-fs.js';
+import UpdateInformation from './modules/updateInformation.js';
 import checkboxStatus from './modules/check-status.js';
 
 // Main Function
-class ToDoListItems {
+class ToDoListItem {
   constructor(completed, description, index) {
     this.completed = completed;
     this.description = description;
@@ -30,7 +32,7 @@ itemDescription.addEventListener('keypress', (e) => {
 
   if (e.key === 'Enter' && description !== '') {
     // Create item
-    const item = new ToDoListItems(false, description);
+    const item = new ToDoListItem(false, description);
 
     // Add item
     StoredItems.addItem(item);
@@ -53,7 +55,7 @@ Remove item Event and Change to do list item when clicked
 */
 toDoListContainer.addEventListener('click', (e) => {
   // Remove Element
-  if (e.target.classList.contains('remove') === true) {
+  if (e.target.classList.contains('remove')) {
     // Remove item from List
     StoredItems.removeItem(e.target);
 
