@@ -4,23 +4,21 @@
   font-weight: normal;
   font-family: Arial, 'Courier New', Courier, monospace;
   letter-spacing: normal;
+  color: #fff;
 }
 
 i {
   cursor: pointer;
 }
 
-body {
-  background-color: rgb(153, 153, 181);
-}
-
 /*
   Styles of the main container
 */
 #main-container {
-  width: 60vw;
-  max-width: 450px;
-  margin: 3rem auto;
+  background-color: rgba(255, 255, 255, 0.313);
+  width: 70vw;
+  max-width: 550px;
+  margin: 0 auto;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.336);
 }
 
@@ -39,26 +37,24 @@ body {
 }
 
 .form {
-  position: relative;
+  background-color: inherit;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 
   &__input {
+    background-color: inherit;
     width: 100%;
     padding: 1rem;
     border: none;
     outline: none;
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
 
   &__btn {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    background-color: transparent;
+    background-color: inherit;
     border: none;
     padding-right: 1rem;
   }
@@ -88,7 +84,7 @@ body {
 #clear-completed {
   text-align: center;
   padding: 1rem;
-  color: rgba(128, 128, 128, 0.76);
+  color: rgba(62, 62, 62, 0.76);
   background-color: rgba(204, 204, 204, 0.2);
 }
 
@@ -110,7 +106,7 @@ Classes to add for the remove
 }
 
 .new-background {
-  background-color: #fffed3;
+  background-color: #777645;
 }
 
 .fa-trash-can {

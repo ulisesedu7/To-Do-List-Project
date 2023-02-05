@@ -1,5 +1,5 @@
 // CSS styles import
-// import './styles/background.scss';
+import './styles/background.scss';
 import './styles/style.scss';
 
 // Import functionalities of adding and removing
