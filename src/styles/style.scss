@@ -4,11 +4,21 @@
   font-weight: normal;
   font-family: Arial, 'Courier New', Courier, monospace;
   letter-spacing: normal;
+  color: #fff;
 }
 
+i {
+  cursor: pointer;
+}
+
+/*
+  Styles of the main container
+*/
 #main-container {
-  width: 55%;
-  margin: 3rem auto;
+  background-color: rgba(255, 255, 255, 0.313);
+  width: 70vw;
+  max-width: 550px;
+  margin: 0 auto;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.336);
 }
 
@@ -17,8 +27,36 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.445);
 }
 
-i {
-  cursor: pointer;
+/*
+  Styles of the header
+*/
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.form {
+  background-color: inherit;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &__input {
+    background-color: inherit;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  &__btn {
+    background-color: inherit;
+    border: none;
+    padding-right: 1rem;
+  }
 }
 
 .list-items-c {
@@ -30,21 +68,6 @@ i {
 
 .list-items-c:nth-child(1) {
   border-top: 1px solid rgba(128, 128, 128, 0.445);
-}
-
-#main-c-head {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-#to-do-input {
-  width: 95%;
-  padding: 1rem;
-  border: none;
-  font-style: italic;
-  padding-right: 0;
-  margin-right: 0;
 }
 
 .to-do-des {
@@ -60,7 +83,7 @@ i {
 #clear-completed {
   text-align: center;
   padding: 1rem;
-  color: rgba(128, 128, 128, 0.76);
+  color: rgba(62, 62, 62, 0.76);
   background-color: rgba(204, 204, 204, 0.2);
 }
 
@@ -82,7 +105,7 @@ Classes to add for the remove
 }
 
 .new-background {
-  background-color: #fffed3;
+  background-color: #777645;
 }
 
 .fa-trash-can {
