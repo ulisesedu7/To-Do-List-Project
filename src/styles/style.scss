@@ -22,7 +22,7 @@ i {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.336);
 }
 
-#main-container>*,
+#main-container > *,
 .list-items-c {
   border-bottom: 1px solid rgba(128, 128, 128, 0.445);
 }
@@ -51,7 +51,6 @@ i {
     font-style: italic;
     font-size: 1rem;
   }
-
 
   &__btn {
     background-color: inherit;
